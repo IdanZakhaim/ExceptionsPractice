@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,13 +18,17 @@ public class Main {
 
     public static void divisionCalculator() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int num1 = scanner.nextInt();
-        System.out.println("Enter a second number");
-        int num2 = scanner.nextInt();
+        int num1;
+        int num2;
         try {
+            System.out.println("Enter a number");
+            num1 = scanner.nextInt();
+            System.out.println("Enter a second number");
+            num2 = scanner.nextInt();
             int sum = num1 / num2;
             System.out.println(sum);//אם num2 = 0 התכנית תדלג על השורה הזו ישר לשורה הבאה
+        } catch (InputMismatchException e) {
+            System.out.println("Wrong input values!");
         } catch (ArithmeticException e) {
             e.printStackTrace(); // מדפיס למה השגיאה קרתה (by zero)
             //System.out.println("num 2 = 0");
@@ -55,7 +60,6 @@ public class Main {
             System.out.println(arrayList.get(10));
             }catch (IndexOutOfBoundsException e){
             System.out.println("HELP!!!!");
-
         }
 
     }
